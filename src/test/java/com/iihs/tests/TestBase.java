@@ -57,37 +57,37 @@ public class TestBase {
 
 	}
 
-	@AfterMethod(alwaysRun = true)
-	public void tearDown(ITestResult result) throws IOException {
-		
-		//checking if the test method failed.
-		if (result.getStatus() == ITestResult.FAILURE) {
-			
-			//get screenShot using the utility method and save the location of the screenshot
-			String screenshotLocation = BrowserUtils.getScreenshot(result.getName());
-			//it captures the name of the test method
-			extentLogger.fail(result.getName());
-			
-			//captures the exception thrown
-			extentLogger.fail(result.getThrowable());
-			
-            //add the screenshot to the report
-            extentLogger.addScreenCaptureFromPath(screenshotLocation);
-            
-			//capture the exception thrown
-		} else if (result.getStatus() == ITestResult.SKIP) {
-			extentLogger.skip("Test Case Skipped is " + result.getName());
-		}
-		
-		//Driver.closeDriver();
-	}
+//	@AfterMethod(alwaysRun = true)
+//	public void tearDown(ITestResult result) throws IOException {
+//		
+//		//checking if the test method failed.
+//		if (result.getStatus() == ITestResult.FAILURE) {
+//			
+//			//get screenShot using the utility method and save the location of the screenshot
+//			String screenshotLocation = BrowserUtils.getScreenshot(result.getName());
+//			//it captures the name of the test method
+//			extentLogger.fail(result.getName());
+//			
+//			//captures the exception thrown
+//			extentLogger.fail(result.getThrowable());
+//			
+//            //add the screenshot to the report
+//            extentLogger.addScreenCaptureFromPath(screenshotLocation);
+//            
+//			//capture the exception thrown
+//		} else if (result.getStatus() == ITestResult.SKIP) {
+//			extentLogger.skip("Test Case Skipped is " + result.getName());
+//		}
+//		
+//		//Driver.closeDriver();
+//	}
 
 
-	@AfterTest
-	public void tearDownTest() {
-		report.flush();
-		driver.close();
-	}
+//	@AfterTest
+//	public void tearDownTest() {
+//		report.flush();
+//		driver.close();
+//	}
 
 }
 

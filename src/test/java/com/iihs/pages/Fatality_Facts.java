@@ -55,4 +55,6 @@ public class Fatality_Facts {
 	
 	@FindBy(xpath = "(//ul[@class='lawsSubMenu']/li)[1]")
 	public WebElement linkTrends;
+	
+	
 }
